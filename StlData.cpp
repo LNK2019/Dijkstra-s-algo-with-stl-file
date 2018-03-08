@@ -35,7 +35,7 @@ namespace stl {
 					break;
 				}
 			}
-			if (curSmallestVertex == nullptr) {			//if all vertices in the miltiset are already processed
+			if (curSmallestVertex == nullptr) {			//if all vertices in the multiset are already processed
 				std::cerr << "ERROR: there is no connection between start and end vercies" << std::endl;
 				return -1.0;
 			}
@@ -52,7 +52,7 @@ namespace stl {
 				
 				if (curSmallestVertex->closestDistance + Vertex::getDistance(*curSmallestVertex, *curAdjVertex) < curAdjVertex->closestDistance)		//if the closest distance is already set but it is bigger than distance from our curSmallestVertex
 				{																																		
-					auto distanceIters = verticesByDistance.equal_range(curAdjVertex);																	//find it in miltiset
+					auto distanceIters = verticesByDistance.equal_range(curAdjVertex);																	//find it in multiset
 					for (auto curIter = distanceIters.first; curIter != distanceIters.second; ++curIter) {												
 						if (Vertex::equal(curAdjVertex, *curIter)) {
 							verticesByDistance.erase(curIter);																							//erase it
